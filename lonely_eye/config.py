@@ -33,6 +33,8 @@ class StorageSettings(BaseModel):
 
 class Settings(BaseSettings):
 
+    api_title: str = "RTU_IT_Lab"
+
     api_prefix: str = "/api/v1"
 
     db: DBSettings = DBSettings()
