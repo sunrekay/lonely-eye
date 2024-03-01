@@ -13,6 +13,7 @@ uvicorn = {extras = ["standart"], version = "^0.27.1"}
 boto3 = "^1.34.51"
 sqlalchemy = {extras = ["asyncio"], version = "^2.0.27"}
 pydantic-settings = "^2.2.1"
+alembic = "^1.13.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
