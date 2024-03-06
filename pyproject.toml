@@ -17,6 +17,7 @@ alembic = "^1.13.1"
 psycopg2 = "^2.9.9"
 asyncpg = "^0.29.0"
 python-multipart = "^0.0.9"
+pydantic-extra-types = "^2.6.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
