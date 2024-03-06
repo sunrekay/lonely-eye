@@ -1,8 +1,8 @@
 """Added camera table
 
-Revision ID: 66e00572c64c
+Revision ID: dcb0cf78bdc4
 Revises: 
-Create Date: 2024-03-06 14:15:36.843228
+Create Date: 2024-03-06 17:28:25.643689
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "66e00572c64c"
+revision: str = "dcb0cf78bdc4"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,8 +25,8 @@ def upgrade() -> None:
         "camera",
         sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
         sa.Column("type", sa.Integer(), nullable=False),
-        sa.Column("longitude", sa.String(length=15), nullable=False),
-        sa.Column("latitude", sa.String(length=15), nullable=False),
+        sa.Column("longitude", sa.Float(), nullable=False),
+        sa.Column("latitude", sa.Float(), nullable=False),
         sa.Column("description", sa.Text(), nullable=False),
         sa.Column("key", sa.Uuid(), nullable=False),
         sa.PrimaryKeyConstraint("id"),
