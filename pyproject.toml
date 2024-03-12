@@ -30,3 +30,11 @@ black = "^24.2.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [".", "lonely_eye"]
+asyncio_mode="auto"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
