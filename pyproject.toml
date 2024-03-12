@@ -21,6 +21,7 @@ pydantic-extra-types = "^2.6.0"
 leb128 = "^1.0.6"
 httpx = "^0.27.0"
 pytest-asyncio = "^0.23.5.post1"
+pydantic = {extras = ["email"], version = "^2.6.3"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
