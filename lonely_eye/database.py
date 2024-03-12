@@ -1,5 +1,6 @@
 from asyncio import current_task
 
+from sqlalchemy import NullPool
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     create_async_engine,
@@ -7,7 +8,7 @@ from sqlalchemy.ext.asyncio import (
     async_scoped_session,
 )
 
-from config import settings
+from lonely_eye.config import settings
 
 
 class Database:
@@ -15,6 +16,7 @@ class Database:
         self.engine = create_async_engine(
             url=url,
             echo=echo,
+            poolclass=NullPool,
         )
         self.session_factory = async_sessionmaker(
             bind=self.engine,
