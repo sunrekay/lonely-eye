@@ -36,5 +36,6 @@ pythonpath = [".", "lonely_eye"]
 asyncio_mode="auto"
 filterwarnings = [
     "ignore::DeprecationWarning",
+    "ignore::UserWarning",
     'ignore:function ham\(\) is deprecated:DeprecationWarning',
 ]
