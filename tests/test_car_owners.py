@@ -22,7 +22,7 @@ async def test_upload_owners_valid_xlsx(ac: AsyncClient):
         files=files,
     )
     assert response.status_code == 201
-    assert len(response.json()["wrong_data"]) == 0
+    assert len(response.json()["duplicates"]) == 0
 
 
 async def test_upload_owners_valid_xlsx_invalid_fields(ac: AsyncClient):
@@ -55,11 +55,14 @@ async def test_upload_owners_valid_xlsx_invalid_data(ac: AsyncClient):
 
 async def test_upload_owners_valid_xlsx_duplicates(ac: AsyncClient):
     files = {
-        "excel_file": open("./tests/car_owners_files/car_owners_valid.xlsx", "rb"),
+        "excel_file": open(
+            "./tests/car_owners_files/car_owners_valid_with_duplicates.xlsx", "rb"
+        ),
     }
     response = await ac.post(
         "/cars_owners/upload_owners",
         files=files,
     )
-    assert response.status_code == 200
-    assert len(response.json()["upload_data"]) == 0
+    print(response.json())
+    assert response.status_code == 201
+    assert len(response.json()["uploaded"]) == 1
