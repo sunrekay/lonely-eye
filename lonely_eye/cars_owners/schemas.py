@@ -6,19 +6,30 @@ from pydantic import BaseModel, EmailStr
 from lonely_eye.cars_owners.constants import HttpUrlStr
 
 
-class CarOwner(BaseModel):
-    number: Annotated[str, MinLen(5), MaxLen(10)]
-    email: Optional[EmailStr] = None
-    phone: Annotated[str, MinLen(9), MaxLen(15)] = None  # TODO: Replace on Class
+class CarOwnerIn(BaseModel):
+    email: Optional[EmailStr]
+    phone: Annotated[str, MinLen(9), MaxLen(15)]
     vk: Optional[HttpUrlStr] = None
     telegram: Optional[HttpUrlStr] = None
-    car_owner_id: Optional[int] = None  # TODO: Create new BaseModel
 
+
+class TransportIn(BaseModel):
+    number: Annotated[str, MinLen(5), MaxLen(10)]
+    car_owner_id: Optional[int] = None
+
+
+class ExcelParse(TransportIn, CarOwnerIn):
     @staticmethod
-    def values() -> list:
-        return list(CarOwner.model_fields.keys())[:-1]
+    def keys() -> list:
+        keys = list(ExcelParse.model_fields.keys())
+        keys.remove("car_owner_id")
+        return keys
+
+
+class TransportOwnersOut(CarOwnerIn):
+    number: Annotated[str, MinLen(5), MaxLen(10)]
 
 
 class UploadOwnersOut(BaseModel):
-    upload_data: Optional[list[CarOwner]] = None
-    wrong_data: Optional[list[CarOwner]] = None
+    uploaded: Optional[list[TransportOwnersOut]] = None
+    duplicates: Optional[list[TransportOwnersOut]] = None

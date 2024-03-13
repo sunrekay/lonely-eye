@@ -20,7 +20,10 @@ async def upload_owners(
     excel_file: Annotated[UploadFile, Depends(dependencies.is_valid_excel)],
     session: AsyncSession = Depends(database.session_dependency),
 ):
-    upload_owners_out = await service.add_cars_owners(excel=excel_file, session=session)
-    if len(upload_owners_out.upload_data) == 0:
+    upload_owners_out = await service.add_cars_owners_and_transport_from_excel(
+        excel=excel_file,
+        session=session,
+    )
+    if len(upload_owners_out.uploaded) == 0:
         response.status_code = status.HTTP_200_OK
     return upload_owners_out

@@ -8,19 +8,24 @@ from openpyxl.workbook import Workbook
 from fastapi import UploadFile
 from pydantic import ValidationError
 
-from lonely_eye.cars_owners.schemas import CarOwner
+from lonely_eye.cars_owners.constants import FIELD_NAMES
+from lonely_eye.cars_owners.schemas import ExcelParse
 
 
-async def get_cars_owners_from_excel(excel: UploadFile) -> list[CarOwner]:
+async def get_cars_owners_from_excel(excel: UploadFile) -> list[ExcelParse]:
     wb = await parce_excel(excel)
     data = _get_data_from_excel_sheet(wb=wb)
 
-    if sorted(data[0]) != sorted(CarOwner.values()):
+    if sorted(data[FIELD_NAMES]) != sorted(ExcelParse.keys()):
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail=f"Expected fields: {CarOwner.values()}. Received fields: {data[0]}",
+            detail=f"Expected fields: {ExcelParse.keys()}. Received fields: {data[0]}",
         )
 
+    return _get_cars_owners_from_data(data=data)
+
+
+def _get_cars_owners_from_data(data: list[list[Any]]) -> list[ExcelParse]:
     wrong_line: int = 0
     try:
         schemas: list = []
@@ -30,8 +35,8 @@ async def get_cars_owners_from_excel(excel: UploadFile) -> list[CarOwner]:
             for j in range(len(data[i])):
                 if data[i][j] is None:
                     continue
-                d[data[0][j]] = str(data[i][j])
-            schemas.append(CarOwner.parse_obj(d))
+                d[data[FIELD_NAMES][j]] = str(data[i][j])
+            schemas.append(ExcelParse.parse_obj(d))
         return schemas
 
     except ValidationError as ex:

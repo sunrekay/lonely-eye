@@ -8,8 +8,8 @@ class CarOwner(Base):
     __tablename__ = "car_owner"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    email: Mapped[str] = mapped_column(nullable=True, unique=True)
-    phone: Mapped[str] = mapped_column(nullable=True, unique=True)
+    email: Mapped[str] = mapped_column(unique=True)
+    phone: Mapped[str] = mapped_column(unique=True)
     vk: Mapped[str] = mapped_column(nullable=True, unique=True)
     telegram: Mapped[str] = mapped_column(nullable=True, unique=True)
 

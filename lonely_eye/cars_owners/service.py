@@ -1,52 +1,56 @@
-from fastapi import Depends, UploadFile
-from sqlalchemy.exc import IntegrityError, PendingRollbackError
+from fastapi import UploadFile
+from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from lonely_eye.cars_owners.schemas import UploadOwnersOut
+from lonely_eye.cars_owners.schemas import (
+    UploadOwnersOut,
+    ExcelParse,
+    TransportIn,
+    TransportOwnersOut,
+)
 from lonely_eye.cars_owners.models import CarOwner, Transport
-from lonely_eye.cars_owners.schemas import CarOwner as CarOwnerSchemas
+from lonely_eye.cars_owners.schemas import CarOwnerIn
 from lonely_eye.cars_owners import utils
-from lonely_eye.database import database
 
 
-async def add_cars_owners(
+async def add_cars_owners_and_transport_from_excel(
     excel: UploadFile,
     session: AsyncSession,
-):  # TODO: Refactoring !!!
-    cars_owners = await utils.get_cars_owners_from_excel(excel)
-    upload_data: list = []
-    wrong_data: list = []
-    for car_owner in cars_owners:
+):
+    excel_parse: list[ExcelParse] = await utils.get_cars_owners_from_excel(excel)
+    uploaded: list = []
+    duplicates: list = []
+    for ep in excel_parse:
         try:
-            upload_data.append(
-                await add_car_owner(
-                    car_owner=car_owner,
-                    session=session,
-                )
+            car_owner_in = CarOwnerIn(**ep.dict())
+            transport_in = TransportIn(**ep.dict())
+
+            res = await session.scalars(
+                select(Transport).where(Transport.number == transport_in.number)
             )
+            if res.one_or_none() is not None:
+                raise IntegrityError(
+                    statement="", params="", orig=Exception
+                )  # TODO: Write error
+
+            car_owner = CarOwner(**car_owner_in.model_dump())
+            session.add(car_owner)
+            await session.commit()
+
+            transport_in.car_owner_id = car_owner.id
+            session.add(Transport(**transport_in.model_dump()))
+            await session.commit()
+
+            uploaded.append(TransportOwnersOut(**ep.dict()))
+
         except IntegrityError:
             await session.rollback()
-            wrong_data.append(car_owner)
+            duplicates.append(
+                TransportOwnersOut(**ep.dict())
+            )  # TODO: Add Write exceptions in duplicates
 
     return UploadOwnersOut(
-        upload_data=upload_data,
-        wrong_data=wrong_data,
+        uploaded=uploaded,
+        duplicates=duplicates,
     )
-
-
-async def add_car_owner(
-    car_owner: CarOwnerSchemas,
-    session: AsyncSession,
-):
-    co = CarOwner(**car_owner.model_dump(exclude={"number", "car_owner_id"}))
-    session.add(co)
-    await session.commit()
-
-    co = await session.get(CarOwner, co.id)
-    car_owner.car_owner_id = co.id
-    transport = Transport(
-        **car_owner.model_dump(exclude={"phone", "vk", "telegram", "email"})
-    )
-    session.add(transport)
-    await session.commit()
-    return car_owner
