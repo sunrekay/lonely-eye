@@ -11,14 +11,17 @@ from lonely_eye.cars_owners.schemas import (
 )
 from lonely_eye.cars_owners.models import CarOwner, Transport
 from lonely_eye.cars_owners.schemas import CarOwnerIn
-from lonely_eye.cars_owners import utils
+from lonely_eye.excel import utils as excel_utils
 
 
 async def add_cars_owners_and_transport_from_excel(
     excel: UploadFile,
     session: AsyncSession,
 ):
-    excel_parse: list[ExcelParse] = await utils.get_cars_owners_from_excel(excel)
+    excel_parse: list[ExcelParse] = await excel_utils.get_schemas_from_excel(
+        excel=excel,
+        pydantic_schema=ExcelParse,
+    )
     uploaded: list = []
     duplicates: list = []
     for ep in excel_parse:

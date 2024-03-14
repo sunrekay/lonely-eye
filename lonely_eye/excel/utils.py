@@ -4,9 +4,25 @@ from typing import Any
 import openpyxl
 from fastapi import HTTPException, status
 from openpyxl.workbook import Workbook
-from pydantic import ValidationError, BaseModel
+from pydantic import ValidationError
 
 from lonely_eye.excel.constants import FIELD_NAMES_INDEX
+
+
+async def get_schemas_from_excel(excel, pydantic_schema: Any) -> list[Any]:
+    wb = await parce(excel)
+    data = get_data_from_sheet(wb=wb)
+
+    if sorted(data[FIELD_NAMES_INDEX]) != sorted(pydantic_schema.keys()):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"Expected fields: {pydantic_schema.keys()}. Received fields: {data[FIELD_NAMES_INDEX]}",
+        )
+
+    return get_schemas_from_data(
+        data=data,
+        pydantic_schema=pydantic_schema,
+    )
 
 
 async def parce(excel) -> Workbook:
@@ -24,7 +40,7 @@ def get_data_from_sheet(wb: Workbook) -> list[list[Any]]:
     return l
 
 
-def get_schemas_from_data(data: list[list[Any]], pydantic_schema: Any):
+def get_schemas_from_data(data: list[list[Any]], pydantic_schema: Any) -> list[Any]:
     wrong_line: int = 0
     try:
         schemas: list = []
