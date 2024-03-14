@@ -3,10 +3,10 @@ from httpx import AsyncClient
 
 async def test_upload_owners_invalid_xlsx(ac: AsyncClient):
     files = {
-        "excel_file": open("./tests/car_owners_files/car_owners_invalid.docx", "rb"),
+        "excel_file": open("./tests/car_owners_files/invalid.docx", "rb"),
     }
     response = await ac.post(
-        "/cars_owners/upload_owners",
+        "/cars_owners/upload_excel",
         files=files,
     )
     assert response.status_code == 415
@@ -15,10 +15,10 @@ async def test_upload_owners_invalid_xlsx(ac: AsyncClient):
 
 async def test_upload_owners_valid_xlsx(ac: AsyncClient):
     files = {
-        "excel_file": open("./tests/car_owners_files/car_owners_valid.xlsx", "rb"),
+        "excel_file": open("./tests/car_owners_files/valid.xlsx", "rb"),
     }
     response = await ac.post(
-        "/cars_owners/upload_owners",
+        "/cars_owners/upload_excel",
         files=files,
     )
     assert response.status_code == 201
@@ -27,12 +27,10 @@ async def test_upload_owners_valid_xlsx(ac: AsyncClient):
 
 async def test_upload_owners_valid_xlsx_invalid_fields(ac: AsyncClient):
     files = {
-        "excel_file": open(
-            "./tests/car_owners_files/car_owners_invalid_fields.xlsx", "rb"
-        ),
+        "excel_file": open("./tests/car_owners_files/invalid_fields.xlsx", "rb"),
     }
     response = await ac.post(
-        "/cars_owners/upload_owners",
+        "/cars_owners/upload_excel",
         files=files,
     )
     assert response.status_code == 409
@@ -41,12 +39,10 @@ async def test_upload_owners_valid_xlsx_invalid_fields(ac: AsyncClient):
 
 async def test_upload_owners_valid_xlsx_invalid_data(ac: AsyncClient):
     files = {
-        "excel_file": open(
-            "./tests/car_owners_files/car_owners_invalid_data.xlsx", "rb"
-        ),
+        "excel_file": open("./tests/car_owners_files/invalid_data.xlsx", "rb"),
     }
     response = await ac.post(
-        "/cars_owners/upload_owners",
+        "/cars_owners/upload_excel",
         files=files,
     )
     assert response.status_code == 409
@@ -55,12 +51,10 @@ async def test_upload_owners_valid_xlsx_invalid_data(ac: AsyncClient):
 
 async def test_upload_owners_valid_xlsx_duplicates(ac: AsyncClient):
     files = {
-        "excel_file": open(
-            "./tests/car_owners_files/car_owners_valid_with_duplicates.xlsx", "rb"
-        ),
+        "excel_file": open("./tests/car_owners_files/valid_with_duplicates.xlsx", "rb"),
     }
     response = await ac.post(
-        "/cars_owners/upload_owners",
+        "/cars_owners/upload_excel",
         files=files,
     )
     print(response.json())
