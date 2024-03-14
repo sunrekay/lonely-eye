@@ -5,13 +5,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from lonely_eye.cars_owners.schemas import UploadOwnersOut
 from lonely_eye.database import database
-from lonely_eye.cars_owners import dependencies, service
+from lonely_eye.cars_owners import service
+from lonely_eye.excel import dependencies
 
 router = APIRouter(tags=["Cars Owners"], prefix="/cars_owners")
 
 
 @router.post(
-    "/upload_owners",
+    "/upload_excel",
     response_model=UploadOwnersOut,
     status_code=status.HTTP_201_CREATED,
 )
