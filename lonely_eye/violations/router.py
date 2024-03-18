@@ -8,7 +8,7 @@ from lonely_eye.violations import service
 from lonely_eye.excel import dependencies as excel_dependencies
 from lonely_eye.violations.schemas import ViolationsOut
 
-router = APIRouter(tags=["Violations"], prefix="/violations")
+router = APIRouter()
 
 
 @router.post(

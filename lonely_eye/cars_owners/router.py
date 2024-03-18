@@ -8,7 +8,7 @@ from lonely_eye.database import database
 from lonely_eye.cars_owners import service
 from lonely_eye.excel import dependencies
 
-router = APIRouter(tags=["Cars Owners"], prefix="/cars_owners")
+router = APIRouter()
 
 
 @router.post(
