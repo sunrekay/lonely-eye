@@ -1,19 +1,21 @@
 import json
-import time
 
 from httpx import AsyncClient
-from redis.asyncio import Redis
 from sqlalchemy import update
 
 from lonely_eye import Worker
 from lonely_eye.auth.utils import decode_jwt
-from lonely_eye.cache_memory import cache_memory, Keys
 from tests.conftest import async_session_maker
 
 user_Vladimir: dict = {
     "username": "Vladimir",
     "email": "vladimir@mail.com",
     "password": "vladimir12345",
+}
+user_Domitry: dict = {
+    "username": "Domitry",
+    "email": "domytrus@mail.com",
+    "password": "domitrus54321",
 }
 ACCESS_TOKEN: str
 REFRESH_TOKEN: str
@@ -166,3 +168,16 @@ async def test_me(ac: AsyncClient):
     )
     assert response.json()["success"]["username"] == user_Vladimir.get("username")
     assert response.status_code == 200
+
+
+async def test_registration_2(ac: AsyncClient):
+    data: dict = {"data": json.dumps(user_Domitry)}
+    files: dict = {"photo": open("./tests/camera_photos/high_speed.jpg", "rb")}
+    response = await ac.post(
+        "/workers/registration",
+        data=data,
+        files=files,
+    )
+
+    assert response.status_code == 201
+    assert response.json() == {"username": "Domitry", "email": "domytrus@mail.com"}
