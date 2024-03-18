@@ -5,8 +5,16 @@ from lonely_eye.config import settings
 
 class Keys:
     @staticmethod
-    def worker(worker_id, worker_username):
-        return f"worker:{worker_username}:{worker_id}"
+    def worker_refresh_token(_id, username):
+        return f"worker:refresh_token:{_id}:{username}"
+
+    @staticmethod
+    def manager_refresh_token(_id, username):
+        return f"manager:refresh_token:{_id}:{username}"
+
+    @staticmethod
+    def worker_photo_url(_id, username):
+        return f"manager:photo_url:{_id}:{username}"
 
 
 class CacheMemory:
