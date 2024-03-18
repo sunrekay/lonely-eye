@@ -3,8 +3,10 @@ from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from lonely_eye import Worker
-from lonely_eye.auth.schemas import TokensInfo, AccessToken
+from lonely_eye.auth.schemas import TokensInfo
+from lonely_eye.auth import service as auth_service
 from lonely_eye.cache_memory import cache_memory
+from lonely_eye.cache_memory import Keys as key_generator
 from lonely_eye.database import database
 from lonely_eye.workers import service, dependencies
 from lonely_eye.workers.schemas import (
@@ -43,7 +45,11 @@ async def worker_login(
     worker: Worker = Depends(dependencies.verify_login),
     client: Redis = Depends(cache_memory.pool_dependency),
 ):
-    return await service.worker_login(worker=worker, client=client)
+    return await auth_service.login(
+        model=worker,
+        client=client,
+        key_generator_func=key_generator.worker_refresh_token,
+    )
 
 
 @router.post(
@@ -55,9 +61,10 @@ async def worker_refresh(
     worker_jwt: WorkerJWT = Depends(dependencies.verify_refresh),
     client: Redis = Depends(cache_memory.pool_dependency),
 ):
-    return await service.worker_refresh(
-        worker_jwt=worker_jwt,
+    return await auth_service.refresh(
+        model=worker_jwt,
         client=client,
+        key_generator_func=key_generator.worker_refresh_token,
     )
 
 
@@ -66,12 +73,13 @@ async def worker_refresh(
     status_code=status.HTTP_200_OK,
 )
 async def worker_logout(
-    access_token: AccessToken = Depends(dependencies.verify_worker),
+    worker: Worker = Depends(dependencies.verify_worker),
     client: Redis = Depends(cache_memory.pool_dependency),
 ):
-    await service.worker_logout(
-        access_token=access_token,
+    await auth_service.logout(
+        model=worker,
         client=client,
+        key_generator_func=key_generator.worker_refresh_token,
     )
 
 
@@ -81,6 +89,6 @@ async def worker_logout(
     status_code=status.HTTP_200_OK,
 )
 async def worker_me(
-    access_token: AccessToken = Depends(dependencies.verify_worker),
+    worker: Worker = Depends(dependencies.verify_worker),
 ):
-    return {"success": access_token.model_dump()}
+    return {"success": worker}
