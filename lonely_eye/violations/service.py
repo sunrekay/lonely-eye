@@ -17,19 +17,16 @@ async def add_violations_from_excel(
     uploaded: list[ViolationIn] = []
     duplicates: list[ViolationIn] = []
 
-    for ep in excel_parse:
+    for violation_in in excel_parse:
         try:
-            violation_in: ViolationIn = ViolationIn(**ep.dict())
             violation = Violation(**violation_in.model_dump())
-
             session.add(violation)
             await session.commit()
-
             uploaded.append(ViolationIn.model_validate(violation))
 
         except IntegrityError:
             await session.rollback()
-            duplicates.append(ViolationIn(**ep.dict()))
+            duplicates.append(violation_in)
 
     return ViolationsOut(
         uploaded=uploaded,
