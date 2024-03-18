@@ -5,6 +5,7 @@ from lonely_eye.cameras.router import router as cameras_router
 from lonely_eye.cars_owners.router import router as car_owners_router
 from lonely_eye.violations.router import router as violations_router
 from lonely_eye.workers.router import router as workers_router
+from lonely_eye.managers.router import router as managers_router
 
 app = FastAPI(
     title=settings.api_title,
@@ -33,6 +34,12 @@ app.include_router(
     router=workers_router,
     prefix="/workers",
     tags=["Workers"],
+)
+
+app.include_router(
+    router=managers_router,
+    prefix="/managers",
+    tags=["Managers"],
 )
 #  TODO: Реализовать базовую схему для отправки ответов
 #  TODO: Создать отдельные файлы для кастомных ошибок
