@@ -14,3 +14,4 @@ class Worker(Base):
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[bytes] = mapped_column()
     is_active: Mapped[bool] = mapped_column(default=False)
+    skill: Mapped[int] = mapped_column(default=1)
