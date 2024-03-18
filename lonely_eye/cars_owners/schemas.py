@@ -3,7 +3,7 @@ from typing import Annotated, Optional
 from annotated_types import MinLen, MaxLen
 from pydantic import BaseModel, EmailStr
 
-from lonely_eye.cars_owners.constants import HttpUrlStr
+from lonely_eye.constants import HttpUrlStr
 
 
 class CarOwnerIn(BaseModel):
