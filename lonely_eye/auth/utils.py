@@ -58,18 +58,18 @@ def verify_password(
     )
 
 
-def tokens_info(pydantic_schema: Any, refresh_token_id: str) -> TokensInfo:
+def tokens_info(model: Any, refresh_token_id: str) -> TokensInfo:
     return TokensInfo(
         access_token=encode_jwt(
             payload=AccessToken(
-                sub=str(pydantic_schema.id),
-                username=pydantic_schema.username,
+                sub=str(model.id),
+                username=model.username,
             ).model_dump()
         ),
         refresh_token=encode_jwt(
             payload=RefreshToken(
-                sub=str(pydantic_schema.id),
-                username=pydantic_schema.username,
+                sub=str(model.id),
+                username=model.username,
                 token_id=refresh_token_id,
             ).model_dump()
         ),
