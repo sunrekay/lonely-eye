@@ -57,3 +57,12 @@ async def add_cars_owners_and_transport_from_excel(
         uploaded=uploaded,
         duplicates=duplicates,
     )
+
+
+async def get_transport_by_number(
+    number: str,
+    session: AsyncSession,
+):
+    query = select(Transport).where(Transport.number == number)
+    result = await session.execute(query)
+    return result.scalar()
