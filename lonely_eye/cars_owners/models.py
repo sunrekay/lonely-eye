@@ -1,7 +1,12 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from lonely_eye.models import Base
+
+if TYPE_CHECKING:
+    from lonely_eye.cases.models import Case
 
 
 class CarOwner(Base):
@@ -24,3 +29,4 @@ class Transport(Base):
     car_owner_id: Mapped[int] = mapped_column(ForeignKey("car_owner.id"))
 
     car_owner: Mapped["CarOwner"] = relationship(back_populates="transport")
+    case: Mapped["Case"] = relationship(back_populates="transport")
