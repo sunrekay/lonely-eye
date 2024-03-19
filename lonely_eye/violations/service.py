@@ -1,3 +1,5 @@
+import uuid
+
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -32,3 +34,10 @@ async def add_violations_from_excel(
         uploaded=uploaded,
         duplicates=duplicates,
     )
+
+
+async def get_violation(
+    _id: uuid.UUID,
+    session: AsyncSession,
+):
+    return await session.get(Violation, _id)
