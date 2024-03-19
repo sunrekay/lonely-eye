@@ -7,6 +7,8 @@ from lonely_eye.models import Base
 
 
 class Camera(Base):
+    __tablename__ = "camera"
+
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     type: Mapped[int] = mapped_column()
     longitude: Mapped[float] = mapped_column()

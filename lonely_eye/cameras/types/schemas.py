@@ -5,7 +5,17 @@ from pydantic import BaseModel
 from typing_extensions import TypedDict
 
 
+class CameraUnified(BaseModel):
+    transport_number: str
+    camera_id: uuid.UUID
+    violation_id: uuid.UUID
+    violation_value: str
+    skill_value: int
+    datetime: datetime
+
+
 class Camera1(BaseModel):
+    type: int = 1
     transport_chars: str
     transport_numbers: str
     transport_region: str
@@ -46,6 +56,7 @@ class Camera2Datetime(TypedDict):
 
 
 class Camera2(BaseModel):
+    type: int = 2
     transport: Camera2Transport
     camera: Camera2Camera
     violation: Camera2Violation
@@ -63,6 +74,7 @@ class Camera3Violation(TypedDict):
 
 
 class Camera3(BaseModel):
+    type: int = 3
     transport: str
     camera: Camera3Camera
     violation: Camera3Violation
