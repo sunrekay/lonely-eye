@@ -15,6 +15,9 @@ DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
 
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = os.getenv("REDIS_PORT")
+
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 SERVICE_NAME = os.getenv("SERVICE_NAME")
@@ -23,7 +26,7 @@ ENDPOINT_URL = os.getenv("ENDPOINT_URL")
 
 class DBSettings(BaseModel):
     url: str = f"postgresql+asyncpg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-    echo: bool = False  # TODO: Before production, change from True to False
+    echo: bool = False
 
 
 class StorageSettings(BaseModel):
@@ -50,8 +53,8 @@ class AuthJWT(BaseModel):
 
 
 class RedisSettings(BaseModel):
-    host: str = "localhost"
-    port: int = 6379
+    host: str = REDIS_HOST
+    port: int = REDIS_PORT
 
     worker_photo_url_expire_seconds: int = int(
         StorageSettings().expiration_url_seconds * 0.8
