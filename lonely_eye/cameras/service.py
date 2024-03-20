@@ -13,7 +13,7 @@ from lonely_eye.violations import service as violations_service
 from lonely_eye.cars_owners import service as car_owners_service
 from lonely_eye.file_storage import service as file_storage_service
 from lonely_eye.cases import service as cases_service
-from lonely_eye.cases.schemas import CreateCase, Status
+from lonely_eye.cases.schemas import CreateCase, CaseStatus
 
 
 async def camera_registration(
@@ -76,7 +76,7 @@ async def upload_case(
         violation_value=camera_unify.violation_value,
         photo_id=photo_id,
         skill=camera_unify.skill_value,
-        status=Status.created,
+        status=CaseStatus.created,
     )
 
     case = await cases_service.create_case(
