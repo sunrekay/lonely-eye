@@ -79,5 +79,7 @@ class Settings(BaseSettings):
 
     auth_jwt: AuthJWT = AuthJWT()
 
+    k_workers: int = 1
+
 
 settings = Settings()
