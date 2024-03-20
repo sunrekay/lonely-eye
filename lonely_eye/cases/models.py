@@ -10,6 +10,7 @@ from lonely_eye.models import Base
 if TYPE_CHECKING:
     from lonely_eye.cars_owners.models import Transport
     from lonely_eye.violations.models import Violation
+    from lonely_eye.workers.models import Worker
 
 
 class Case(Base):
@@ -30,6 +31,7 @@ class Case(Base):
     transport: Mapped["Transport"] = relationship(back_populates="case")
     violation: Mapped["Violation"] = relationship(back_populates="case")
 
-
-# class Solution(Base):
-#     pass
+    worker: Mapped[list["Worker"]] = relationship(
+        secondary="solution",
+        back_populates="case",
+    )
