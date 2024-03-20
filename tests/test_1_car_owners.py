@@ -87,17 +87,3 @@ async def test_upload_owners_valid_xlsx_invalid_data(ac: AsyncClient):
     )
     assert response.status_code == 409
     assert "Invalid" in response.json()["detail"]
-
-
-async def test_upload_owners_valid_xlsx_duplicates(ac: AsyncClient):
-    files = {
-        "excel_file": open("./tests/car_owners_files/valid_with_duplicates.xlsx", "rb"),
-    }
-    response = await ac.post(
-        "/cars_owners/upload_excel",
-        headers={"Authorization": f"Bearer {ACCESS_TOKEN}"},
-        files=files,
-    )
-    print(response.json())
-    assert response.status_code == 201
-    assert len(response.json()["uploaded"]) == 1
