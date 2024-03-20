@@ -4,11 +4,13 @@ services:
   postgres:
     image: postgres
     restart: always
-    command: -p 5433
-    expose:
-      - 5432
     env_file:
       - .env
+    command: -p 5433
+    expose:
+      - 5433
+    volumes:
+      - ./docker/init-multi-postgres-databases.sh:/docker-entrypoint-initdb.d/init-multi-postgres-databases.sh
 
 
   redis:
