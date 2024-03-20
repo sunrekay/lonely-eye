@@ -141,6 +141,25 @@ async def test_upload_case(ac: AsyncClient):
             "bytes_line": bytes_line,
         },
     )
-    print(response.json())
     assert response.status_code == 201
     assert response.json() == {"case_id": 1, "status": "Created"}
+
+    response = await ac.post(
+        "/cameras/upload_case",
+        files=files,
+        params={
+            "bytes_line": bytes_line,
+        },
+    )
+    assert response.status_code == 201
+    assert response.json() == {"case_id": 2, "status": "Created"}
+
+    response = await ac.post(
+        "/cameras/upload_case",
+        files=files,
+        params={
+            "bytes_line": bytes_line,
+        },
+    )
+    assert response.status_code == 201
+    assert response.json() == {"case_id": 3, "status": "Created"}
