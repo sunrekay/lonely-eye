@@ -14,7 +14,15 @@ class Keys:
 
     @staticmethod
     def worker_photo_url(_id, username):
-        return f"manager:photo_url:{_id}:{username}"
+        return f"worker:photo_url:{_id}:{username}"
+
+    @staticmethod
+    def case_photo_url(_id, photo_id):
+        return f"case:photo_url:{_id}:{photo_id}"
+
+    @staticmethod
+    def case_send_worker(_id, username):
+        return f"case:pool:{_id}:{username}"
 
 
 class CacheMemory:
