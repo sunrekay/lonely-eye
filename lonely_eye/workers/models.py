@@ -1,8 +1,12 @@
 import uuid
+from typing import TYPE_CHECKING
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from lonely_eye.models import Base
+
+if TYPE_CHECKING:
+    from lonely_eye.cases.models import Case
 
 
 class Worker(Base):
@@ -15,3 +19,8 @@ class Worker(Base):
     password: Mapped[bytes] = mapped_column()
     is_active: Mapped[bool] = mapped_column(default=False)
     skill: Mapped[int] = mapped_column(default=1)
+
+    case: Mapped[list["Case"]] = relationship(
+        secondary="solution",
+        back_populates="worker",
+    )
