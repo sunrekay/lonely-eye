@@ -83,7 +83,7 @@ async def worker_logout(
     )
 
 
-@router.post(  # TODO: Delete router ?
+@router.post(
     "/me",
     response_model="",
     status_code=status.HTTP_200_OK,
