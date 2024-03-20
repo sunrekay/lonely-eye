@@ -76,7 +76,7 @@ async def upload_case(
         violation_value=camera_unify.violation_value,
         photo_id=photo_id,
         skill=camera_unify.skill_value,
-        status=CaseStatus.created,
+        status=CaseStatus.not_resolved,
     )
 
     case = await cases_service.create_case(

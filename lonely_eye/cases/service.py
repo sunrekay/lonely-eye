@@ -89,7 +89,9 @@ async def get_case_by_skill(
 ) -> Case | None:
     query = (
         select(Case)
-        .where((Case.skill == worker.skill) and (Case.status != CaseStatus.closed))
+        .where(
+            (Case.skill == worker.skill) and (Case.status == CaseStatus.not_resolved)
+        )
         .options(joinedload(Case.transport), joinedload(Case.violation))
     )
     case = await session.scalar(query)
@@ -134,7 +136,14 @@ async def check_case(
         if sum(d[worker.skill]) == settings.k_workers:
             await update_case_status(
                 case_id=case_id,
-                case_status=CaseStatus.closed,
+                case_status=CaseStatus.crime,
+                session=session,
+            )
+
+        elif sum(d[worker.skill]) == 0:
+            await update_case_status(
+                case_id=case_id,
+                case_status=CaseStatus.mistake,
                 session=session,
             )
 

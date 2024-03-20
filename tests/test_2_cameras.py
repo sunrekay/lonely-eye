@@ -142,7 +142,7 @@ async def test_upload_case(ac: AsyncClient):
         },
     )
     assert response.status_code == 201
-    assert response.json() == {"case_id": 1, "status": "Created"}
+    assert response.json() == {"case_id": 1, "status": "Not resolved"}
 
     response = await ac.post(
         "/cameras/upload_case",
@@ -152,7 +152,7 @@ async def test_upload_case(ac: AsyncClient):
         },
     )
     assert response.status_code == 201
-    assert response.json() == {"case_id": 2, "status": "Created"}
+    assert response.json() == {"case_id": 2, "status": "Not resolved"}
 
     response = await ac.post(
         "/cameras/upload_case",
@@ -162,4 +162,4 @@ async def test_upload_case(ac: AsyncClient):
         },
     )
     assert response.status_code == 201
-    assert response.json() == {"case_id": 3, "status": "Created"}
+    assert response.json() == {"case_id": 3, "status": "Not resolved"}

@@ -16,9 +16,9 @@ class CreateCase(BaseModel):
 
 
 class CaseStatus(enum.StrEnum):
-    created: str = "Created"
-    in_progress: str = "In progress"
-    closed: str = "Closed"
+    not_resolved: str = "Not resolved"
+    crime: str = "Crime"
+    mistake: str = "Mistake"
 
 
 class CaseOut(BaseModel):
