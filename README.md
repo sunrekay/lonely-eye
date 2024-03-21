@@ -37,3 +37,5 @@ docker compose build
 ```
 docker compose up
 ```
+6. Перейти по ссылке: http://127.0.0.1:8000/docs
+
