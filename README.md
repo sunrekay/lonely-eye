@@ -1,5 +1,9 @@
 # Lonely eye
-## Описание ([Техническое задание](https://github.com/RTUITLab/Recruit/blob/master/requirements/back/README.md))
+## Автор
+Владислав Коростылев  
+GitHub: [@sunrekay](https://github.com/sunrekay)
+
+## Описание ([Техническое задание](https://github.com/RTUITLab/Recruit/blob/master/2024/requirements/back/README.md))
 
 <b>Тестовое задание</b> для работы в лаборатории <b>РТУ МИРЭА "RTUITLab"</b>
 
