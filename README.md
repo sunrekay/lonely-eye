@@ -27,22 +27,24 @@ GitHub: [@sunrekay](https://github.com/sunrekay)
 
 ## Запуск
 1. Склонируйте репозиторий:
-```
+```bash
 git clone https://github.com/sunrekay/lonely-eye
 ```
 2. Перейдите в него:
-```
+```bash
 cd lonely-eye
 ```
 3. Смените имя: ".env-example" -> ".env"
+```bash
+mv .env-example .env
+```
 
 4. Соберите контейнеры:
-```
+```bash
 docker compose build
 ```
 5. Запустите:
-```
+```bash
 docker compose up
 ```
 6. Перейти по ссылке: http://127.0.0.1:8000/docs
-
