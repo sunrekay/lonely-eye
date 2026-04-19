@@ -1,5 +1,5 @@
 # Lonely eye
-## Описание ([Техническое задание](https://github.com/RTUITLab/Recruit/blob/master/requirements/back/README.md))
+## Описание ([Техническое задание](https://github.com/RTUITLab/Recruit/blob/master/2024/requirements/back/README.md))
 
 <b>Тестовое задание</b> для работы в лаборатории <b>РТУ МИРЭА "RTUITLab"</b>
 
