@@ -1,0 +1,308 @@
+************* Module lonely_eye
+lonely_eye/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.main
+lonely_eye/main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.cache_memory
+lonely_eye/cache_memory.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cache_memory.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cache_memory.py:8:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:12:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:20:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:24:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:28:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cache_memory.py:36:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cache_memory.py:28:0: R0903: Too few public methods (1/2) (too-few-public-methods)
+************* Module lonely_eye.config
+lonely_eye/config.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/config.py:27:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/config.py:32:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/config.py:46:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/config.py:55:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/config.py:69:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.database
+lonely_eye/database.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/database.py:14:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/database.py:28:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/database.py:35:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.constants
+lonely_eye/constants.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.models
+lonely_eye/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/models.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/models.py:4:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.cases.schemas
+lonely_eye/cases/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cases/schemas.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cases/schemas.py:18:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cases/schemas.py:19:4: C0103: Class constant name "not_resolved" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/cases/schemas.py:20:4: C0103: Class constant name "crime" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/cases/schemas.py:21:4: C0103: Class constant name "mistake" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/cases/schemas.py:24:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.cases.service
+lonely_eye/cases/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cases/service.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:29:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:61:4: W0612: Unused variable 'solution' (unused-variable)
+lonely_eye/cases/service.py:86:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:101:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:121:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:158:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:167:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/service.py:176:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.cases.exceptions
+lonely_eye/cases/exceptions.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.cases.router
+lonely_eye/cases/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cases/router.py:21:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cases/router.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.cases.models
+lonely_eye/cases/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cases/models.py:16:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cases/models.py:16:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.managers.schemas
+lonely_eye/managers/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/managers/schemas.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/managers/schemas.py:14:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/managers/schemas.py:20:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/managers/schemas.py:26:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/managers/schemas.py:30:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.managers.service
+lonely_eye/managers/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/managers/service.py:14:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/service.py:25:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/service.py:27:4: W0613: Unused argument 'manager' (unused-argument)
+lonely_eye/managers/service.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.managers.exceptions
+lonely_eye/managers/exceptions.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.managers.dependencies
+lonely_eye/managers/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/managers/dependencies.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/dependencies.py:36:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/dependencies.py:49:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.managers.router
+lonely_eye/managers/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/managers/router.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/router.py:39:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/router.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/router.py:70:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/router.py:87:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/managers/router.py:88:4: W0613: Unused argument 'manager' (unused-argument)
+************* Module lonely_eye.managers.models
+lonely_eye/managers/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/managers/models.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/managers/models.py:8:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.workers.schemas
+lonely_eye/workers/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/workers/schemas.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/workers/schemas.py:15:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/workers/schemas.py:20:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/schemas.py:26:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/workers/schemas.py:31:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/workers/schemas.py:37:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.workers.service
+lonely_eye/workers/service.py:46:9: W0511: TODO: Save photo local (fixme)
+lonely_eye/workers/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/workers/service.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/service.py:52:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.workers.dependencies
+lonely_eye/workers/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/workers/dependencies.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/dependencies.py:40:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/dependencies.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/dependencies.py:3:0: W0611: Unused HTTPException imported from fastapi (unused-import)
+lonely_eye/workers/dependencies.py:3:0: W0611: Unused status imported from fastapi (unused-import)
+lonely_eye/workers/dependencies.py:4:0: W0611: Unused OAuth2 imported from fastapi.security (unused-import)
+************* Module lonely_eye.workers.router
+lonely_eye/workers/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/workers/router.py:27:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/router.py:44:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/router.py:60:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/router.py:75:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/workers/router.py:91:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.workers.models
+lonely_eye/workers/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/workers/models.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/workers/models.py:12:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.excel.utils
+lonely_eye/excel/utils.py:19:0: C0301: Line too long (108/100) (line-too-long)
+lonely_eye/excel/utils.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/excel/utils.py:12:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/excel/utils.py:28:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/excel/utils.py:35:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/excel/utils.py:43:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/excel/utils.py:59:8: W0707: Consider explicitly re-raising using 'raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f'Invalid {wrong_field}: {data[wrong_line]}') from ex' (raise-missing-from)
+************* Module lonely_eye.excel.dependencies
+lonely_eye/excel/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/excel/dependencies.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.excel.constants
+lonely_eye/excel/constants.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.cars_owners.schemas
+lonely_eye/cars_owners/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cars_owners/schemas.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/schemas.py:16:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/schemas.py:21:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/schemas.py:23:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cars_owners/schemas.py:29:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/schemas.py:33:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.cars_owners.service
+lonely_eye/cars_owners/service.py:38:20: W0511: TODO: Write error (fixme)
+lonely_eye/cars_owners/service.py:54:16: W0511: TODO: Add Write exceptions in duplicates (fixme)
+lonely_eye/cars_owners/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cars_owners/service.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cars_owners/service.py:62:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.cars_owners.router
+lonely_eye/cars_owners/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cars_owners/router.py:21:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cars_owners/router.py:24:4: W0613: Unused argument 'manager' (unused-argument)
+************* Module lonely_eye.cars_owners.models
+lonely_eye/cars_owners/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cars_owners/models.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/models.py:12:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+lonely_eye/cars_owners/models.py:24:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cars_owners/models.py:24:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.file_storage.service
+lonely_eye/file_storage/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/file_storage/service.py:16:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/file_storage/service.py:32:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/file_storage/service.py:44:11: W0718: Catching too general exception Exception (broad-exception-caught)
+************* Module lonely_eye.file_storage.__init__
+lonely_eye/file_storage/__init__.py:1:1: W0511: TODO: Написать файлы для remote и local хранения (fixme)
+************* Module lonely_eye.violations.schemas
+lonely_eye/violations/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/violations/schemas.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/violations/schemas.py:18:4: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/violations/schemas.py:23:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.violations.service
+lonely_eye/violations/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/violations/service.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/violations/service.py:39:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.violations.router
+lonely_eye/violations/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/violations/router.py:22:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/violations/router.py:25:4: W0613: Unused argument 'manager' (unused-argument)
+************* Module lonely_eye.violations.constants
+lonely_eye/violations/constants.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.violations.models
+lonely_eye/violations/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/violations/models.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/violations/models.py:11:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module lonely_eye.solutions.schemas
+lonely_eye/solutions/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/solutions/schemas.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/solutions/schemas.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.solutions.service
+lonely_eye/solutions/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/solutions/service.py:12:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/solutions/service.py:27:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/solutions/service.py:37:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/solutions/service.py:56:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.solutions.models
+lonely_eye/solutions/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/solutions/models.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/solutions/models.py:9:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+lonely_eye/solutions/models.py:4:0: W0611: Unused relationship imported from sqlalchemy.orm (unused-import)
+************* Module lonely_eye.auth.schemas
+lonely_eye/auth/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/auth/schemas.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/auth/schemas.py:17:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/auth/schemas.py:27:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.auth.service
+lonely_eye/auth/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/auth/service.py:10:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/service.py:34:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/service.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.auth.exceptions
+lonely_eye/auth/exceptions.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.auth.utils
+lonely_eye/auth/utils.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/auth/utils.py:12:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/utils.py:24:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/utils.py:36:8: W0707: Consider explicitly re-raising using 'except ExpiredSignatureError as exc' and 'raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Token expired') from exc' (raise-missing-from)
+lonely_eye/auth/utils.py:42:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/utils.py:51:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/utils.py:61:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.auth.dependencies
+lonely_eye/auth/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/auth/dependencies.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/auth/dependencies.py:12:8: W0707: Consider explicitly re-raising using 'except DecodeError as exc' and 'raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Token invalid') from exc' (raise-missing-from)
+************* Module lonely_eye.cameras.schemas
+lonely_eye/cameras/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/schemas.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/schemas.py:16:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/schemas.py:20:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.cameras.service
+lonely_eye/cameras/service.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/service.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/service.py:29:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/service.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/service.py:43:29: W0123: Use of eval (eval-used)
+************* Module lonely_eye.cameras.exceptions
+lonely_eye/cameras/exceptions.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.cameras.utils
+lonely_eye/cameras/utils.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/utils.py:14:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/utils.py:32:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/utils.py:43:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/utils.py:72:32: C0209: Formatting a regular string which could be an f-string (consider-using-f-string)
+************* Module lonely_eye.cameras.dependencies
+lonely_eye/cameras/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/dependencies.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/dependencies.py:4:0: W0611: Unused UploadFile imported from fastapi (unused-import)
+************* Module lonely_eye.cameras.router
+lonely_eye/cameras/router.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/router.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/router.py:35:0: C0116: Missing function or method docstring (missing-function-docstring)
+lonely_eye/cameras/router.py:3:0: W0611: Unused Header imported from fastapi (unused-import)
+lonely_eye/cameras/router.py:3:0: W0611: Unused Body imported from fastapi (unused-import)
+************* Module lonely_eye.cameras.models
+lonely_eye/cameras/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/models.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/models.py:9:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+lonely_eye/cameras/models.py:3:0: W0611: Unused String imported from sqlalchemy (unused-import)
+************* Module lonely_eye.cameras.types.schemas
+lonely_eye/cameras/types/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/cameras/types/schemas.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:17:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:29:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:35:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:39:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:44:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:48:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:58:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:67:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:71:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/cameras/types/schemas.py:76:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module lonely_eye.cameras.types
+lonely_eye/cameras/types/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module lonely_eye.image.schemas
+lonely_eye/image/schemas.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/image/schemas.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+lonely_eye/image/schemas.py:5:4: C0103: Class constant name "jpg" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/image/schemas.py:6:4: C0103: Class constant name "jpeg" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/image/schemas.py:7:4: C0103: Class constant name "png" doesn't conform to UPPER_CASE naming style (invalid-name)
+lonely_eye/image/schemas.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.image.dependencies
+lonely_eye/image/dependencies.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+lonely_eye/image/dependencies.py:6:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module lonely_eye.image.__init__
+lonely_eye/image/__init__.py:1:0: R0801: Similar lines in 2 files
+==lonely_eye.managers.dependencies:[45:59]
+==lonely_eye.workers.dependencies:[50:64]
+    raise auth_exceptions.wrong_token
+
+
+async def verify_worker(
+    credentials: HTTPAuthorizationCredentials = Depends(http_bearer),
+    session: AsyncSession = Depends(database.session_dependency),
+) -> Type[Worker] | None:
+
+    access_token = credentials.credentials
+    data = auth_dependencies.get_data_from_token(access_token)
+
+    if "token_id" in data.keys():
+        raise auth_exceptions.wrong_token
+ (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 7.79/10 (previous run: 7.79/10, +0.00)

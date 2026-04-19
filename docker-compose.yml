@@ -1,26 +1,17 @@
-version: '3'
-
 services:
   postgres:
     image: postgres
     restart: always
     env_file:
       - .env
-    command: -p 5433
-    expose:
-      - 5433
-    volumes:
-      - ./docker/init-multi-postgres-databases.sh:/docker-entrypoint-initdb.d/init-multi-postgres-databases.sh
-
+    ports:
+      - "5432:5432"
 
   redis:
     image: redis
     restart: always
-    command: --port 6380
-    expose:
-      - 6380
-    env_file:
-      - .env
+    ports:
+      - "6379:6379"
 
   app:
     build:
@@ -28,7 +19,7 @@ services:
     env_file:
       - .env
     container_name: lonely_eye
-    command: ["/lonely-eye/docker/app.sh"]
+    command: gunicorn -w 4 -k uvicorn.workers.UvicornWorker lonely_eye.main:app --bind 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:

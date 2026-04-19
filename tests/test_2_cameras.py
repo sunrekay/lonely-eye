@@ -1,8 +1,6 @@
-import json
 import random
 import uuid
 
-import requests
 from httpx import AsyncClient
 
 from camera_photos import (
@@ -10,6 +8,7 @@ from camera_photos import (
     d2,
     d3,
     test_camera_types,
+    serialize,
 )
 
 CORRECT_KEY: uuid.UUID
@@ -33,11 +32,7 @@ async def test_camera_registration(ac: AsyncClient):
 
 
 async def test_upload_case_invalid_key(ac: AsyncClient):
-    response = requests.post(
-        url="https://recruit.rtuitlab.dev/serialize",
-        data=json.dumps(random.choice(test_camera_types)),
-    )
-    bytes_line = response.content
+    bytes_line = str(serialize(random.choice(test_camera_types)))
     files: dict = {
         "photo": open("./tests/camera_photos/high_speed.jpg", "rb"),
     }
@@ -54,13 +49,10 @@ async def test_upload_case_invalid_key(ac: AsyncClient):
 
 async def test_upload_case_invalid_transport(ac: AsyncClient):
     d: dict = d3.copy()
+    d["camera"] = d3["camera"].copy()
     d["camera"]["id"] = CORRECT_KEY
     d["transport"] = "SDW123"
-    response = requests.post(
-        url="https://recruit.rtuitlab.dev/serialize",
-        data=json.dumps(d),
-    )
-    bytes_line = response.content
+    bytes_line = str(serialize(d))
     files: dict = {
         "photo": open("./tests/camera_photos/high_speed.jpg", "rb"),
     }
@@ -77,14 +69,12 @@ async def test_upload_case_invalid_transport(ac: AsyncClient):
 
 async def test_upload_case_invalid_violation(ac: AsyncClient):
     d: dict = d3.copy()
+    d["camera"] = d3["camera"].copy()
+    d["violation"] = d3["violation"].copy()
     violation_correct = d3["violation"]["id"]
     d["camera"]["id"] = CORRECT_KEY
     d["violation"]["id"] = str(uuid.uuid4())
-    response = requests.post(
-        url="https://recruit.rtuitlab.dev/serialize",
-        data=json.dumps(d),
-    )
-    bytes_line = response.content
+    bytes_line = str(serialize(d))
     files: dict = {
         "photo": open("./tests/camera_photos/high_speed.jpg", "rb"),
     }
@@ -102,12 +92,9 @@ async def test_upload_case_invalid_violation(ac: AsyncClient):
 
 async def test_upload_case_invalid_photo(ac: AsyncClient):
     d: dict = d3.copy()
+    d["camera"] = d3["camera"].copy()
     d["camera"]["id"] = CORRECT_KEY
-    response = requests.post(
-        url="https://recruit.rtuitlab.dev/serialize",
-        data=json.dumps(d),
-    )
-    bytes_line = response.content
+    bytes_line = str(serialize(d))
     files: dict = {
         "photo": open("./tests/camera_photos/not_photo.txt", "rb"),
     }
@@ -125,41 +112,20 @@ async def test_upload_case_invalid_photo(ac: AsyncClient):
 
 async def test_upload_case(ac: AsyncClient):
     d: dict = d3.copy()
+    d["camera"] = d3["camera"].copy()
     d["camera"]["id"] = CORRECT_KEY
-    response = requests.post(
-        url="https://recruit.rtuitlab.dev/serialize",
-        data=json.dumps(d),
-    )
-    bytes_line = response.content
-    files: dict = {
-        "photo": open("./tests/camera_photos/high_speed.jpg", "rb"),
-    }
-    response = await ac.post(
-        "/cameras/upload_case",
-        files=files,
-        params={
-            "bytes_line": bytes_line,
-        },
-    )
-    assert response.status_code == 201
-    assert response.json() == {"case_id": 1, "status": "Not resolved"}
+    bytes_line = str(serialize(d))
 
-    response = await ac.post(
-        "/cameras/upload_case",
-        files=files,
-        params={
-            "bytes_line": bytes_line,
-        },
-    )
-    assert response.status_code == 201
-    assert response.json() == {"case_id": 2, "status": "Not resolved"}
-
-    response = await ac.post(
-        "/cameras/upload_case",
-        files=files,
-        params={
-            "bytes_line": bytes_line,
-        },
-    )
-    assert response.status_code == 201
-    assert response.json() == {"case_id": 3, "status": "Not resolved"}
+    for expected_id in [1, 2, 3]:
+        files: dict = {
+            "photo": open("./tests/camera_photos/high_speed.jpg", "rb"),
+        }
+        response = await ac.post(
+            "/cameras/upload_case",
+            files=files,
+            params={
+                "bytes_line": bytes_line,
+            },
+        )
+        assert response.status_code == 201
+        assert response.json() == {"case_id": expected_id, "status": "Not resolved"}
