@@ -1,7 +1,7 @@
 from typing import Type
 
-from fastapi import Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials, OAuth2
+from fastapi import Depends
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from lonely_eye.database import database
@@ -62,7 +62,12 @@ async def verify_worker(
     if "token_id" in data.keys():
         raise auth_exceptions.wrong_token
 
-    worker = await session.get(Worker, int(data["sub"]))
+    try:
+        worker_id = int(data["sub"])
+    except (ValueError, TypeError):
+        raise auth_exceptions.permission_denied
+
+    worker = await session.get(Worker, worker_id)
 
     if worker is not None:
         return worker

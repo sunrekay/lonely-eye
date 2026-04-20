@@ -33,13 +33,14 @@ async def get_case_from_pool(
 ):
     resolved = await solutions_service.resolved(worker, session)
     if resolved is not None:
-        case: str = await client.get(
+        cached: str = await client.get(
             name=key_generator.case_send_worker(
                 _id=worker.id,
                 username=worker.username,
             )
         )
-        return CaseOut(**json.loads(case))
+        if cached is not None:
+            return CaseOut(**json.loads(cached))
 
     case: Case = await get_case_by_skill(worker=worker, session=session)
     if case is None:
